@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnSubmit;
     EditText edtNumber;
     TextView textView;
-    int minimun=1,maximum=10;
+    final int minimun=1,maximum=10;
+    public final static  String TAG="BOX NUMBER";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         if(message.isEmpty()){
             Toast.makeText(this,"Please enter any number between "+minimun+" to "+maximum,Toast.LENGTH_SHORT).show();
         }else {
-            intent.putExtra("BOX NUMBER", message);
+            intent.putExtra(TAG, message);
             startActivity(intent);
         }
 
