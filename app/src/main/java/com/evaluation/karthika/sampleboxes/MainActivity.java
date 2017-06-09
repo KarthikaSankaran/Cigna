@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnSubmit;
     EditText edtNumber;
     TextView textView;
-    final int minimun=1,maximum=10;
-    public final static  String TAG="BOX NUMBER";
+    final int minimum=1,maximum=10;
+    public final static  String PUT_EXTRA="BOX NUMBER";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +26,17 @@ public class MainActivity extends AppCompatActivity {
         edtNumber=(EditText)findViewById(R.id.number_editText);
         textView=(TextView)findViewById(R.id.textView2);
 
-        textView.setText("Enter any number from "+minimun+ " to "+ maximum);
-        edtNumber.setFilters(new InputFilter[]{new InputFilterMinMax(minimun,maximum)});
+        textView.setText("Enter any number from "+minimum+ " to "+ maximum);
+        edtNumber.setFilters(new InputFilter[]{new InputFilterMinMax(minimum,maximum)});
 
     }
     public void onClick(View v) {
         Intent intent = new Intent(this, BoxActivity.class);
         String message = edtNumber.getText().toString();
         if(message.isEmpty()){
-            Toast.makeText(this,"Please enter any number between "+minimun+" to "+maximum,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please enter any number between "+minimum+" to "+maximum,Toast.LENGTH_SHORT).show();
         }else {
-            intent.putExtra(TAG, message);
+            intent.putExtra(PUT_EXTRA, message);
             startActivity(intent);
         }
 
