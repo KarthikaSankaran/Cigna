@@ -14,7 +14,7 @@ public class BoxActivity extends AppCompatActivity {
         int count;
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        String message = intent.getStringExtra("BOX NUMBER");
+        String message = intent.getStringExtra(MainActivity.TAG);
         count = Integer.parseInt(message);
         this.setTitle("Cigna - " + message);
         setContentView(R.layout.box_layout);
